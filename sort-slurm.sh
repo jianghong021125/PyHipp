@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/main
 #!/bin/bash
 
 # Submit this script with: sbatch <this-filename>
@@ -9,21 +5,12 @@
 #SBATCH --time=24:00:00   # walltime
 #SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
 #SBATCH --nodes=1   # number of nodes
-<<<<<<< HEAD
-#SBATCH --cpus-per-task=1   # number of CPUs for this task
-#SBATCH -J "rplhpsort"   # job name
-
-## /SBATCH -p general # partition (queue)
-#SBATCH -o rplhpsort-slurm.%N.%j.out # STDOUT
-#SBATCH -e rplhpsort-slurm.%N.%j.err # STDERR
-=======
 #SBATCH --cpus-per-task=1	# number of processors per task
 #SBATCH -J "rplhps"   # job name
 
 ## /SBATCH -p general # partition (queue)
 #SBATCH -o rplhps-slurm.%N.%j.out # STDOUT
 #SBATCH -e rplhps-slurm.%N.%j.err # STDERR
->>>>>>> upstream/main
 
 # LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
 /data/miniconda3/bin/conda init
@@ -33,7 +20,6 @@ conda activate $envarg
 
 python -u -c "import PyHipp as pyh; \
 import time; \
-pyh.RPLHighPass(saveLevel=1); \
 from PyHipp import mountain_batch; \
 mountain_batch.mountain_batch(); \
 from PyHipp import export_mountain_cells; \

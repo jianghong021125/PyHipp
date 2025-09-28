@@ -5,7 +5,11 @@
 #SBATCH --time=24:00:00   # walltime
 #SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
 #SBATCH --nodes=1   # number of nodes
+<<<<<<< HEAD
 #SBATCH --cpus-per-task=1   # number of CPUs for this task
+=======
+#SBATCH --cpus-per-task=1	# number of processors per task
+>>>>>>> upstream/main
 #SBATCH -J "rpllfp"   # job name
 
 ## /SBATCH -p general # partition (queue)

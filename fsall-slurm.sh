@@ -5,7 +5,11 @@
 #SBATCH --time=24:00:00   # walltime
 #SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
 #SBATCH --nodes=1   # number of nodes
+<<<<<<< HEAD
 #SBATCH --cpus-per-task=1   # number of CPUs for this task
+=======
+#SBATCH --cpus-per-task=1	# number of processors per task
+>>>>>>> upstream/main
 #SBATCH -J "fsall"   # job name
 
 ## /SBATCH -p general # partition (queue)
@@ -14,6 +18,7 @@
 
 # LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
 python -u -c "import PyHipp as pyh; \
+<<<<<<< HEAD
 import time; \
 import DataProcessingTools as DPT; \
 lfall = DPT.objects.processDirs(dirs=None, exclude=['*eye*', '*mountains*'], objtype=pyh.FreqSpectrum, saveLevel=1); \
@@ -23,3 +28,10 @@ hfall.save(); \
 print(time.localtime());
 
 aws sns publish --topic-arn arn:aws:sns:ap-southeast-1:692260005363:awsnotify --message "FSJobDone"
+=======
+import DataProcessingTools as DPT; \
+lfall = DPT.objects.processDirs(dirs=None, exclude=['*eye*','*mountains*'], objtype=pyh.FreqSpectrum, saveLevel=1); \
+lfall.save(); \
+hfall = DPT.objects.processDirs(dirs=None, exclude=['*eye*','*mountains*'], objtype=pyh.FreqSpectrum, loadHighPass=True, pointsPerWindow=3000, saveLevel=1); \
+hfall.save();"
+>>>>>>> upstream/main
